@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GATE Prep — Checklist</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{ink:'#171717',paper:'#f7f7f5',muted:'#737373',line:'#e5e5e2',accent:'#ff5a36',soft:'#fff1ec'},fontFamily:{sans:['Inter','ui-sans-serif','system-ui'],display:['Inter','ui-sans-serif','system-ui']}}}}</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js"></script>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f7f7f5;color:#171717;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif}button,input{font:inherit}.card{background:#fff;border:1px solid #e5e5e2}.subject-card{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.subject-card:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(23,23,23,.07);border-color:#d5d5d0}.subject-card.active{border-color:#ff5a36;box-shadow:0 10px 28px rgba(255,90,54,.12)}.check{appearance:none;width:22px;height:22px;border:1.5px solid #c9c9c4;border-radius:7px;background:#fff;display:grid;place-items:center;flex:none;cursor:pointer}.check:checked{background:#ff5a36;border-color:#ff5a36}.check:checked:after{content:'✓';color:#fff;font-size:13px;font-weight:800}.progress{height:5px;background:#eee;overflow:hidden;border-radius:99px}.progress>i{display:block;height:100%;background:#ff5a36;border-radius:99px}.ring{background:conic-gradient(#ff5a36 var(--p),#ecece8 0);border-radius:50%;padding:3px}.ring>span{width:100%;height:100%;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:11px;font-weight:700}.workspace-row{transition:background .15s}.workspace-row:hover{background:#fafaf8}.timeline-row[open]>summary .chev{transform:rotate(90deg)}summary{list-style:none}summary::-webkit-details-marker{display:none}.hide-scroll::-webkit-scrollbar{display:none}.hide-scroll{scrollbar-width:none}@media(max-width:640px){.hero-grid{grid-template-columns:1fr}.subject-card{min-height:132px}}
+
+/* ===== Refined theme system ===== */
+:root{
+  --bg:#f7f7f5;
+  --surface:#ffffff;
+  --surface-2:#f1f1ee;
+  --surface-3:#fafaf8;
+  --test-bg:rgba(216,75,24,0.05);
+  --test-border:rgba(216,75,24,0.15);
+  --text:#171717;
+  --muted:#737373;
+  --border:#deded9;
+  --accent:#d84b18;
+  --accent-soft:#fff0e9;
+  --success:#177245;
+  --shadow:0 10px 30px rgba(0,0,0,.06);
+}
+html.dark{
+  --bg:#0d0f12;
+  --surface:#15181c;
+  --surface-2:#1c2025;
+  --surface-3:#111418;
+  --test-bg:rgba(255,120,71,0.08);
+  --test-border:rgba(255,120,71,0.22);
+  --text:#f2f4f5;
+  --muted:#a2a8ae;
+  --border:#30353c;
+  --accent:#ff7847;
+  --accent-soft:#2d1d16;
+  --success:#4fd18a;
+  --shadow:0 14px 34px rgba(0,0,0,.32);
+}
+html,body{background:var(--bg)!important;color:var(--text)!important}
+body{transition:background .2s ease,color .2s ease}
+header,.card,.subject-card,.workspace-row,.test-row,
+input,button,.theme-toggle,
+section,details,.timeline-row,
+.bg-white,.bg-paper,.bg-soft,
+.border-line,.border-\[\#DEDED9\]{
+  transition:background-color .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.card{background:var(--surface)!important;border-color:var(--border)!important}
+.subject-card{background:var(--surface)!important;border-color:var(--border)!important}
+.subject-card:hover{border-color:var(--accent)!important;box-shadow:var(--shadow)!important}
+.workspace-row:hover{background:var(--surface-2)!important}
+.test-row{
+  background:var(--test-bg)!important;
+  border:1px solid var(--test-border)!important;
+}
+.test-row:hover{
+  background:var(--accent-soft)!important;
+}
+.theme-surface{background:var(--surface)!important}
+.theme-surface-2{background:var(--surface-2)!important}
+.theme-surface-3{background:var(--surface-3)!important}
+.theme-text{color:var(--text)!important}
+.theme-muted{color:var(--muted)!important}
+.theme-border{border-color:var(--border)!important}
+.theme-accent{color:var(--accent)!important}
+.theme-input{background:var(--surface-2)!important;color:var(--text)!important;border-color:var(--border)!important}
+.theme-input::placeholder{color:var(--muted)!important}
+.theme-toggle{
+  width:52px;height:30px;border:1px solid var(--border);border-radius:999px;
+  background:var(--surface-2);padding:3px;cursor:pointer;display:inline-flex;
+  align-items:center;position:relative;flex:none;
+}
+.theme-toggle::before{content:'☀';position:absolute;left:7px;font-size:12px;color:var(--muted)}
+.theme-toggle::after{content:'☾';position:absolute;right:7px;font-size:12px;color:var(--muted)}
+.theme-knob{
+  display:block;width:22px;height:22px;border-radius:50%;background:var(--text);
+  position:relative;z-index:1;transform:translateX(0);transition:transform .2s ease;
+}
+html.dark .theme-knob{transform:translateX(22px)}
+html.dark .bg-paper{background:var(--bg)!important}
+html.dark .bg-white{background:var(--surface)!important}
+html.dark .bg-ink{background:#f2f4f5!important;color:#0d0f12!important}
+html.dark .text-white{color:#0d0f12!important}
+html.dark .text-ink{color:var(--text)!important}
+html.dark .text-muted{color:var(--muted)!important}
+html.dark .text-accent{color:var(--accent)!important}
+html.dark .border-line{border-color:var(--border)!important}
+html.dark .bg-soft{background:var(--accent-soft)!important}
+html.dark .progress{background:#292e34!important}
+html.dark .ring>span{background:var(--surface)!important}
+html.dark .check{background:var(--surface-2)!important;border-color:#555d66!important}
+html.dark .check:checked{background:var(--accent)!important;border-color:var(--accent)!important}
+</style>
+</head>
+<body x-data="trackerApp()" class="min-h-full">
+<header class="sticky top-0 z-50 backdrop-blur border-b border-line" style="background:color-mix(in srgb,var(--bg) 92%,transparent)">
+ <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+  <a href="#top" class="font-bold tracking-tight text-lg">GATE<span class="text-accent">.</span>TRACK</a>
+  <div class="flex items-center gap-3 text-xs">
+   <span class="hidden sm:inline text-muted">DEC 31 TARGET</span><span class="w-px h-4 bg-line hidden sm:block"></span>
+   <span class="font-semibold" x-text="daysRemaining+' days left'"></span>
+   <span class="px-2.5 py-1 rounded-full bg-ink text-white font-semibold" x-text="overallProgress+'%'">0%</span>
+    <button class="theme-toggle" @click="toggleTheme()" :aria-label="darkMode ? 'Switch to light mode' : 'Switch to dark mode'" :title="darkMode ? 'Light mode' : 'Dark mode'"><span class="theme-knob"></span></button>
+  </div>
+ </div>
+</header>
+<main id="top" class="max-w-6xl mx-auto px-4 sm:px-6 pb-24">
+ <section class="pt-10 sm:pt-14 pb-8">
+  <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+   <div><div class="text-xs font-bold tracking-[.18em] text-accent uppercase mb-3">Your preparation dashboard</div>
+    <h1 class="text-4xl sm:text-6xl font-black tracking-[-.04em] leading-[.95]">What are you<br><span class="text-accent">checking off today?</span></h1>
+  <div class="card rounded-3xl p-4 sm:p-6 shadow-sm">
+   <div class="flex flex-wrap items-center justify-between gap-4 mb-5">
+    <div><div class="font-bold text-lg">Subject Checklist</div><div class="text-sm text-muted">Tap a subject to open its full checklist below.</div></div>
+    <div class="flex items-center gap-5 text-xs text-muted"><span><b class="text-ink" x-text="completedLessonsCount"></b> done</span><span><b class="text-ink" x-text="totalLessonsCount-completedLessonsCount"></b> remaining</span><span><b class="text-accent" x-text="testsDone+'/'+testsTotal"></b> tests</span></div>
+   </div>
+   <div class="hero-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+    <template x-for="subject in dataset.subjects" :key="subject.subject_id">
+     <button class="subject-card text-left rounded-2xl p-4 bg-[var(--surface)]" :class="activeSubjectId===subject.subject_id?'active':''" @click="activeSubjectId=subject.subject_id;q=''; $nextTick(()=>document.getElementById('workspace').scrollIntoView({behavior:'smooth',block:'start'}))">
+      <div class="flex items-start justify-between gap-3">
+       <div class="min-w-0"><div class="text-[11px] font-bold uppercase tracking-wider text-muted mb-1" x-text="subject.subject_id.replaceAll('_',' ')"></div><div class="font-bold leading-5" x-text="subject.subject_name.replace(' - GATE DA','')"></div></div>
+       <div class="ring w-11 h-11 flex-none" :style="'--p:'+getSubjectProgress(subject)+'%'" ><span x-text="getSubjectProgress(subject)+'%'"></span></div>
+      </div>
+      <div class="mt-5 flex items-center justify-between text-xs"><span class="text-muted" x-text="subjectDone(subject)+' / '+subjectTotal(subject)+' items'"></span><span class="font-semibold" :class="getSubjectProgress(subject)===100?'text-accent':'text-ink'" x-text="statusLabel(subject.subject_id)"></span></div>
+      <div class="progress mt-2"><i :style="'width:'+getSubjectProgress(subject)+'%'"></i></div>
+     </button>
+    </template>
+   </div>
+  </div>
+ </section>
+
+ <section id="workspace" class="scroll-mt-24 pt-8">
+  <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-5">
+   <div><div class="text-xs font-bold tracking-[.16em] uppercase text-accent mb-2">Checklist Workspace</div><h2 class="text-3xl sm:text-4xl font-black tracking-[-.03em]" x-text="activeSubject.subject_name"></h2><div class="text-sm text-muted mt-1" x-text="subjectDone(activeSubject)+' of '+subjectTotal(activeSubject)+' items complete'"></div></div>
+   <button @click="toggleAllInSubject(activeSubject)" class="px-4 py-2.5 rounded-xl bg-ink text-white text-sm font-semibold hover:opacity-90" x-text="getSubjectProgress(activeSubject)===100?'Reset Subject':'Mark Subject Complete'"></button>
+  </div>
+  <div class="card rounded-3xl overflow-hidden">
+   <div class="p-4 sm:p-5 border-b border-line flex flex-col sm:flex-row gap-3 sm:items-center justify-between bg-[var(--surface)]">
+    <div class="relative flex-1 max-w-xl"><span class="absolute left-3 top-1/2 -translate-y-1/2 text-muted">⌕</span><input x-model="q" type="search" placeholder="Search lessons, tests, or topics…" class="w-full rounded-xl bg-paper border border-line py-2.5 pl-9 pr-3 text-sm outline-none focus:border-accent"></div>
+    <div class="text-xs text-muted">Progress saves automatically</div>
+   </div>
+   <div class="p-3 sm:p-5">
+    <template x-if="activeSubject.sections"><div class="space-y-2">
+     <template x-for="(sec,si) in activeSubject.sections" :key="sec.section_number">
+      <div x-show="visible(sec.title)||testsAt(activeSubject,si).some(t=>visible(t.title))">
+       <label x-show="sec.lessons>0&&visible(sec.title)" class="workspace-row flex items-center gap-3 p-3 sm:p-4 rounded-xl cursor-pointer">
+        <input class="check" type="checkbox" :checked="sec.completed" @change="sec.completed=!sec.completed;saveState()">
+        <div class="min-w-0 flex-1"><div class="text-[11px] text-muted font-semibold uppercase tracking-wider" x-text="'Section '+sec.section_number"></div><div class="text-sm font-semibold mt-0.5" :class="sec.completed?'text-muted line-through':''" x-text="sec.title"></div></div>
+        <div class="hidden sm:block text-right text-xs text-muted"><div><b class="text-ink" x-text="sec.lessons"></b> lessons</div><div><b class="text-ink" x-text="sec.attachments"></b> files</div></div>
+       </label>
+       <template x-for="(t,ti) in testsAt(activeSubject,si)" :key="ti"><label x-show="visible(t.title)" class="test-row ml-7 my-1 flex items-center gap-3 px-3.5 py-2.5 rounded-xl cursor-pointer"><input class="check" type="checkbox" :checked="t.completed" @change="t.completed=!t.completed;saveState()"><span class="text-[10px] font-bold text-accent uppercase">Test</span><span class="text-sm flex-1 truncate font-medium" :class="t.completed?'text-muted line-through':''" x-text="t.title"></span><span class="hidden sm:inline text-[10px] text-muted font-mono" x-text="t.series"></span></label></template>
+      </div>
+     </template>
+    </div></template>
+    <template x-if="activeSubject.modules"><div class="space-y-7">
+     <template x-for="(mod,mi) in activeSubject.modules" :key="mod.topic">
+      <div x-show="mod.items.some(i=>visible(i.title))||testsAt(activeSubject,mi).some(t=>visible(t.title))">
+       <div class="flex items-center justify-between px-2 mb-2"><div class="text-xs font-bold uppercase tracking-wider text-muted" x-text="mod.topic"></div><div class="text-xs font-semibold" x-text="mod.items.filter(i=>i.completed).length+'/'+mod.items.length"></div></div>
+       <div class="border border-line rounded-2xl overflow-hidden bg-[var(--surface)]">
+        <template x-for="item in mod.items" :key="item.id"><label x-show="visible(item.title)" class="workspace-row flex items-center gap-3 p-3.5 border-b border-line last:border-b-0 cursor-pointer"><input class="check" type="checkbox" :checked="item.completed" @change="item.completed=!item.completed;saveState()"><span class="text-[11px] text-muted w-7" x-text="'#'+item.id"></span><span class="text-sm flex-1" :class="item.completed?'text-muted line-through':''" x-text="item.title"></span><span class="hidden sm:flex gap-1 text-[9px] font-bold text-muted"><span x-show="item.video" class="px-1.5 py-1 rounded bg-paper">VID</span><span x-show="item.pdf" class="px-1.5 py-1 rounded bg-paper">PDF</span></span></label></template>
+        <template x-for="(t,ti) in testsAt(activeSubject,mi)" :key="ti"><label x-show="visible(t.title)" class="test-row flex items-center gap-3 p-3 ml-4 my-1 border-l-2 border-accent cursor-pointer"><input class="check" type="checkbox" :checked="t.completed" @change="t.completed=!t.completed;saveState()"><span class="text-[10px] font-bold text-accent">TEST</span><span class="text-sm flex-1 truncate font-medium" :class="t.completed?'text-muted line-through':''" x-text="t.title"></span><span class="hidden sm:inline text-[10px] text-muted font-mono" x-text="t.series"></span></label></template>
+       </div>
+      </div>
+     </template>
+    </div></template>
+   </div>
+  </div>
+ </section>
+
+ <section class="pt-20" id="timeline">
+  <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-5"><div><div class="text-xs font-bold tracking-[.16em] uppercase text-accent mb-2">Plan</div><h2 class="text-3xl font-black tracking-[-.03em]">Your Route to Dec 31</h2></div><div class="text-sm text-muted">Auto-rebalances as you complete work.</div></div>
+  <div class="grid grid-cols-3 card rounded-2xl overflow-hidden mb-4"><div class="p-4 border-r border-line"><div class="text-[10px] uppercase tracking-wider text-muted">Days Left</div><div class="text-2xl font-black mt-1" x-text="plan.D.toFixed(1)"></div></div><div class="p-4 border-r border-line"><div class="text-[10px] uppercase tracking-wider text-muted">Items Left</div><div class="text-2xl font-black mt-1" x-text="plan.left"></div></div><div class="p-4"><div class="text-[10px] uppercase tracking-wider text-muted">Reclaimed</div><div class="text-2xl font-black mt-1 text-accent" x-text="'+'+plan.reclaimed.toFixed(1)+'d'"></div></div></div>
+  <div class="card rounded-2xl overflow-hidden">
+   <template x-for="s in plan.subs" :key="s.id"><details class="timeline-row border-b border-line last:border-b-0" :open="s.hasNow"><summary class="flex items-center gap-3 p-4 sm:p-5 cursor-pointer hover:bg-[var(--surface)]"><span class="chev transition-transform text-muted">›</span><span class="font-bold flex-1" x-text="s.name"></span><span class="hidden sm:inline text-xs text-muted" x-text="s.done?'Complete':win(s.start,s.end)"></span><span class="text-sm font-bold" :class="s.done?'text-muted':'text-accent'" x-text="s.done?'Done':fmtDays(s.days)"></span><span class="text-xs text-muted" x-text="s.doneCount+'/'+s.units.length"></span></summary><div class="bg-paper border-t border-line px-4 sm:px-8 py-3 space-y-1"><template x-for="(u,ui) in s.units" :key="ui"><div class="flex items-center gap-3 py-2 text-sm"><span class="text-xs text-muted w-5" x-text="String(ui+1).padStart(2,'0')"></span><span class="flex-1" :class="u.done?'text-muted line-through':''" x-text="u.title"></span><span x-show="u.now" class="text-[9px] font-bold px-1.5 py-1 bg-accent text-white rounded">NOW</span><span x-show="u.tight" class="text-[9px] font-bold px-1.5 py-1 border border-accent text-accent rounded">TIGHT</span><span class="text-xs text-muted" x-text="u.done?'Done':fmtDays(u.days)"></span></div></template></div></details></template>
+  </div>
+ </section>
+</main>
+<footer class="border-t border-line py-8"><div class="max-w-6xl mx-auto px-4 sm:px-6 flex justify-between text-xs text-muted"><span>GATE TRACK</span><span>DEC 31 EXECUTION PLAN</span></div></footer>
+<script>
+document.addEventListener('alpine:init', () => {
+  const sec = rows => rows.map(([n,t,l,a]) => ({section_number:n,title:t,lessons:l,attachments:a,completed:false}));
+  const mod = (topic, items) => ({topic, items: items.map(([id,title,pdfOnly]) => ({id,title,video:!pdfOnly,pdf:true,completed:false}))});
+
+  const MPQ='MATHS-PQ', MTS='MATHS-TS', CPQ='CS-PQ', CTS='CSE-TS', MLT='ML-TS', AIT='AI-TS';
+  
+  const TESTS = {
+    linear_algebra: [
+      [0,'Basics of Linear Algebra and Systems',MPQ],[1,'Matrix Algebra and LU Decomposition',MPQ],[2,'Vector Spaces and Subspaces',MPQ],
+      [2,'Module 1, 2, 3 Cumulative Quiz',MPQ],[4,'Determinants and Projections',MPQ],[5,'Eigenvalue and Eigenvector',MPQ],
+      [5,'Module 4, 5, and 6 Cumulative Quiz',MPQ],[7,'SVD and Other Remaining Concepts',MPQ],[8,'FULL SUBJECT',MPQ],
+      [0,'Basics and Systems',MTS,1],[1,'Matrix Algebra',MTS],[2,'Vector Spaces and Subspaces',MTS],[4,'Determinants and Projections',MTS],
+      [5,'Eigenvalues and Eigenvectors',MTS],[6,'Singular Value Decomposition',MTS],[7,'Block Matrix, Quadratic Forms',MTS]],
+    probability: [
+      [0,'Counting',MPQ],[1,'Basic Probability',MPQ],[2,'Random Variables',MPQ],[2,'Cumulative Quiz (Modules 1–3)',MPQ],
+      [4,'Expectation, Variance, Covariance',MPQ],[5,'Special Random Variables',MPQ],[6,'Conditional Expectation and Variance',MPQ],
+      [6,'Cumulative Quiz (Modules 4–7)',MPQ],[6,'FULL SUBJECT',MPQ],
+      [0,'Counting',MTS],[1,'Basic Probability',MTS,1],[3,'Random Variables X, E(X), Var(X)',MTS],[5,'Special Random Variables',MTS],
+      [6,'Conditional Distribution, Expectation & Variance',MTS]],
+    statistics: [
+      [1,'Sampling Distribution and Parameter Estimation',MPQ],[2,'Hypothesis Testing',MPQ],
+      [1,'Statistics for GATE DA – Test 1',MTS],[2,'Statistics for GATE DA – Test 2',MTS]],
+    machine_learning: [
+      [0,'Linear Regression',MLT,1],[2,'Naive Bayes, Logistic Regression',MLT],[7,'Decision Trees, Resampling, Evaluation',MLT],
+      [9,'Neural Networks, Clustering',MLT],[10,'KNN, PCA, LDA',MLT]],
+    dbms: [
+      [0,'ER Diagrams',CPQ],[4,'Relational Algebra, SQL, and Tuple Calculus',CPQ],[5,'ER, FD, and Normalization',CPQ],[6,'File Organization and Indexing',CPQ],[6,'Full Subject Quiz',CPQ],
+      [1,'ER and Relational Model',CTS],[3,'Relational Algebra, Tuple Calculus',CTS],[5,'FD and Normal Forms',CTS],[6,'File Organization & Indexing',CTS],[6,'DBMS Subject-Wise Test',CTS]],
+    algorithms_and_dsa: [
+      [0,'Test 1 – Linear DS & Tree DS',CTS],[2,'Test 2 – Algorithms, Searching & Sorting',CTS],[4,'Test 3 – Graph Theory, Hashing',CTS],[4,'Test 4 – Full DSA',CTS]],
+    ai: [
+      [1,'Propositional Logic',AIT],[1,'Predicate Logic',AIT]
+    ],
+    python: [
+      [0,'Branching, Iteration, Strings',CTS,0,1],[1,'Functions, Built-in Data Structures',CTS,0,1],[2,'Functions, Recursion',CTS],[3,'Python Programming Full Subject',CTS]]
+  };
+  const mkTests = a => (a || []).map(([at,title,series,trial,done]) => ({at,title,series,trial:!!trial,completed:!!done}));
+
+  Alpine.data('trackerApp', () => ({
+    activeSubjectId: 'linear_algebra',
+    q: '',
+    tlOpen: {},
+    darkMode: false,
+
+    schedulePlan: [
+      { subject_id: 'calculus_optimization', name: 'Calculus & Optimization', window: 'Immediate Review', days: 1.5, note: 'Fast-tracked (Known Domain)' },
+      { subject_id: 'linear_algebra', name: 'Linear Algebra', window: 'Oct 1 - Oct 15', days: 15, note: 'High Weightage Core' },
+      { subject_id: 'probability', name: 'Probability', window: 'Oct 16 - Nov 5', days: 20, note: 'Foundational for ML' },
+      { subject_id: 'machine_learning', name: 'Machine Learning', window: 'Nov 6 - Nov 26', days: 20, note: 'Primary DA Syllabus Focus' },
+      { subject_id: 'statistics', name: 'Statistics', window: 'Nov 27 - Dec 8', days: 11, note: 'Parametric & Estimation' },
+      { subject_id: 'python', name: 'Python Programming', window: '', days: 4, note: 'Tests-only checkpoints' },
+      { subject_id: 'dbms', name: 'Database Management Systems', window: 'Dec 9 - Dec 18', days: 10, note: 'Relational & SQL Focus' },
+      { subject_id: 'algorithms_and_dsa', name: 'Data Structures & Algorithms', window: 'Dec 19 - Dec 27', days: 9, note: 'Asymptotics & Sorting' },
+      { subject_id: 'ai', name: 'Artificial Intelligence', window: 'Dec 28 - Dec 31', days: 4, note: 'Search, Logic & Bayesian Networks' }
+    ],
+
+    dataset: { subjects: [
+      { subject_id: 'linear_algebra', subject_name: 'Linear Algebra - GATE DA', sections: sec([
+        ['01','Basics of Linear Algebra & System of Linear Equations',10,6],['02','Matrix Algebra',6,4],['03','Vector Spaces',10,6],
+        ['04','Determinants',2,1],['05','Projections',7,6],['06','Eigenvalues and Eigenvectors',16,11],['07','Singular Value Decomposition (SVD)',18,13],
+        ['08','Remaining Concepts',4,4],['09','PYQs',6,0]]) },
+      { subject_id: 'statistics', subject_name: 'Statistics - GATE DA', sections: sec([
+        ['01','Sampling Distribution',14,12],['02','Parameter Estimation',20,14],['03','Hypothesis Testing',20,20],['04','Descriptive Statistics',1,0]]) },
+      { subject_id: 'probability', subject_name: 'Probability - GATE DA', sections: sec([
+        ['01','Counting',14,13],['02','Basic Probability',13,12],['03','Random Variables',25,16],['04','Expectation and Variance',5,1],
+        ['05','Covariance and Correlation',6,2],['06','Special Random Variables',14,5],['07','Conditional Expectation and Variance',13,8]]) },
+      { subject_id: 'machine_learning', subject_name: 'Machine Learning', sections: sec([
+        ['01','Introduction to Machine Learning',22,30],['02','Probability Theory for ML',10,7],['03','Logistic Regression',3,3],['04','Support Vector Machines (SVM)',9,5],
+        ['05','Decision Trees',3,4],['06','Resampling Methods',3,4],['07','k-Nearest Neighbors (KNN)',3,3],['08','Evaluation Metrics',2,2],['09','Clustering',4,4],
+        ['10','Neural Networks',19,13],['11','Dimensionality Reduction',13,6]]) },
+      { subject_id: 'calculus_optimization', subject_name: 'Calculus and Optimization - GATE DA', sections: sec([
+        ['01','Limits',3,2],['02','Continuity & Differentiability',3,3],['03','Optimization',4,4],['04','Practice Problems',2,0],
+        ['05','Calculus - GATE 2027 (Rishi - IITB)',17,12]]) },
+      { subject_id: 'python', subject_name: 'Python Programming', sections: sec([
+        ['01','Branching, Iteration, Strings',0,0],['02','Functions, Built-in Data Structures',0,0],['03','Functions, Recursion',0,0],['04','Python Programming – Full Subject',0,0]]) },
+      { subject_id: 'dbms', subject_name: 'Database Management Systems (DBMS)', modules: [
+        mod('Introduction & ER Model',[[14,'Intro to DBMS Part 1'],[16,'Intro to DBMS Part 2: ER Model'],[18,'ER Model (Relationships)'],[20,'EER Model']]),
+        mod('Relational Model & ER to Table Conversion',[[22,'Introduction to Relational Model Part 1'],[24,'Converting ER Model to Tables Part 1'],[26,'Converting ER Model to Tables Part 2']]),
+        mod('Relational Algebra',[[29,'Relational Algebra Part 1 (Selection, Projection, Union, Set Difference)'],[31,'Relational Algebra Part 2 (Set Difference Queries)'],
+          [33,'Relational Algebra Part 3 (Cartesian Product)'],[35,'Relational Algebra Part 4 (Renaming)'],[37,'Relational Algebra Part 5 (Core Queries)'],
+          [39,'Relational Algebra Part 6 (Intersection and Join)'],[41,'Relational Algebra Part 7 (Join and Division)'],
+          [43,'Relational Algebra Part 8 (Null Values & Modification)'],[45,'Relational Algebra Part 9 (GATE PYQs)']]),
+        mod('Tuple Calculus',[[47,'Tuple Calculus Part 1'],[49,'Tuple Calculus Part 2']]),
+        mod('SQL',[[51,'SQL Part 1'],[53,'SQL Part 2'],[55,'SQL Part 3'],[57,'SQL Part 4'],[59,'SQL Part 5'],[61,'SQL Part 6'],[63,'SQL Part 7'],[65,'SQL Part 8']]),
+        mod('Normalization',[[68,'Intro to Normalization Part 1'],[70,'Intro to Normalization Part 2'],[72,'Intro to Normalization Part 3'],[74,'Intro to Normalization Part 4'],
+          [76,'First and Second Normal Form'],[78,'Third Normal Form'],[80,'Good Decomposition'],[82,'BCNF and Key Concepts'],[84,'Minimal Cover'],
+          [86,'4th and 5th Normal Forms Introduction']]),
+        mod('File Structure, Indexing & B-Trees',[[89,'Intro to Hard Disk Structure & File Organization'],[91,'Indexing and Its Types'],[93,'B-Trees and B+ Trees']])
+      ] },
+      { subject_id: 'algorithms_and_dsa', subject_name: 'Data Structures & Algorithms', modules: [
+        mod('Asymptotic Analysis & Recurrences',[[96,'Intro to DSA Part 1'],[98,'Intro to DSA Part 2'],[100,'Lecture Slides',1],
+          [101,'Asymptotic Notations Part 1'],[103,'Asymptotic Notations Part 2'],[105,'Asymptotic Notations Part 3'],
+          [107,'Time Complexity Iterative Algorithms Part 1'],[109,'Time Complexity Iterative Algorithms Part 2'],[111,'Time Complexity Iterative Algorithms Part 3'],
+          [113,'Recursive Algorithms Complexity Part 1'],[115,'Recursive Algorithms Complexity Part 2'],[117,'Recursive Algorithms Complexity Part 3'],
+          [184,'Properties of Asymptotic Notations'],[186,'Practice Questions Asymptotic Part 1'],[188,'Practice Questions Asymptotic Part 2'],
+          [190,'Practice Questions Asymptotic Part 3'],[192,'Tower of Hanoi & Substitution Method'],[194,'Solving RR Using Substitution Part 2'],
+          [196,'Tree Method Intro'],[198,'Tree Method Part 2'],[200,'Master Theorem Part 1'],[202,'Master Theorem Part 2'],[204,'Advanced Master Theorem']]),
+        mod('Searching Algorithms',[[120,'Linear Search Part 1'],[122,'Linear Search Part 2'],[124,'Binary Search Part 1'],[126,'Binary Search Part 2'],
+          [128,'Binary Search Part 3'],[130,'Binary Search Part 4'],[132,'Binary Search Part 5'],[134,'Binary Search Part 6']]),
+        mod('Sorting Algorithms',[[137,'Selection Sort'],[139,'Bubble Sort'],[141,'Insertion Sort'],[143,'Counting Sort'],[145,'Radix Sort'],
+          [147,'Heap Sort Part 1'],[149,'Heap Sort Part 2'],[151,'Heap Sort Part 3'],[153,'Heap Sort Part 4'],[155,'Heap Sort Part 5'],[157,'Heap Sort Part 6'],
+          [159,'Merge Sort Part 1'],[161,'Merge Sort Part 2'],[163,'Quick Sort Part 1'],[165,'Quick Sort Part 2']]),
+        mod('Graph Algorithms',[[168,'Graph Representations'],[170,'BFS (Breadth-First Search)'],[172,'BFT (Breadth-First Traversal)'],[174,'DFS and DFT'],
+          [176,'BFS & DFS Applications']]),
+        mod('Hashing',[[179,'Hashing Part 1'],[181,'Hashing Part 2']])
+      ] },
+      { subject_id: 'ai', subject_name: 'Artificial Intelligence', sections: sec([
+        ['01','Search — Informed, Uninformed, Adversarial',1,0],
+        ['02','Logic — Propositional and Predicate',1,0],
+        ['03','Reasoning Under Uncertainty / Bayesian Networks — Conditional Independence, Variable Elimination, Sampling',1,0]
+      ]) }
+    ] },
+
+    init() {
+      const savedTheme = localStorage.getItem('gate_theme');
+      this.darkMode = savedTheme ? savedTheme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.classList.toggle('dark', this.darkMode);
+      this.dataset.subjects.forEach(x => { x.tests = mkTests(TESTS[x.subject_id]); });
+      try {
+        const saved = localStorage.getItem('gate_prep_tracker_state');
+        if (!saved) return;
+        const parsed = JSON.parse(saved);
+        this.dataset.subjects.forEach(subj => {
+          const s = parsed.find(x => x.subject_id === subj.subject_id);
+          if (!s) return;
+          if (subj.sections && s.sections) subj.sections.forEach((sc, i) => { if (s.sections[i]) sc.completed = !!s.sections[i].completed; });
+          if (subj.tests && s.tests) subj.tests.forEach((t, i) => { if (s.tests[i]) t.completed = !!s.tests[i].completed; });
+          if (subj.modules && s.modules) subj.modules.forEach((m, mi) => m.items.forEach((it, ii) => {
+            if (s.modules[mi] && s.modules[mi].items[ii]) it.completed = !!s.modules[mi].items[ii].completed;
+          }));
+        });
+      } catch (e) { console.error('Could not load state', e); }
+    },
+
+    toggleTheme() {
+      this.darkMode = !this.darkMode;
+      document.documentElement.classList.toggle('dark', this.darkMode);
+      try { localStorage.setItem('gate_theme', this.darkMode ? 'dark' : 'light'); } catch(e) {}
+    },
+
+    saveState() {
+      try { localStorage.setItem('gate_prep_tracker_state', JSON.stringify(this.dataset.subjects)); } catch (e) {}
+    },
+
+    testsAt(s, i) { return (s.tests || []).filter(t => t.at === i); },
+    get testsTotal() { return this.dataset.subjects.reduce((a, x) => a + (x.tests || []).length, 0); },
+    get testsDone() { return this.dataset.subjects.reduce((a, x) => a + (x.tests || []).filter(t => t.completed).length, 0); },
+    visible(title) { return !this.q || title.toLowerCase().includes(this.q.trim().toLowerCase()); },
+
+    get activeSubject() { return this.dataset.subjects.find(s => s.subject_id === this.activeSubjectId); },
+
+    get daysRemaining() {
+      const now = new Date();
+      let target = new Date(now.getFullYear(), 11, 31, 23, 59, 59);
+      return Math.max(0, Math.ceil((target - now) / 86400000));
+    },
+
+    subjectTotal(s) {
+      return (s.sections ? s.sections.reduce((a, x) => a + x.lessons, 0) : s.modules.reduce((a, m) => a + m.items.length, 0)) + (s.tests || []).length;
+    },
+    subjectDone(s) {
+      return (s.sections ? s.sections.reduce((a, x) => a + (x.completed ? x.lessons : 0), 0)
+                         : s.modules.reduce((a, m) => a + m.items.filter(i => i.completed).length, 0)) + (s.tests || []).filter(t => t.completed).length;
+    },
+
+    get totalLessonsCount() { return this.dataset.subjects.reduce((a, s) => a + this.subjectTotal(s), 0); },
+    get completedLessonsCount() { return this.dataset.subjects.reduce((a, s) => a + this.subjectDone(s), 0); },
+    get overallProgress() {
+      const t = this.totalLessonsCount;
+      return t ? Math.round(this.completedLessonsCount / t * 100) : 0;
+    },
+    get dailyTargetRate() {
+      return ((this.totalLessonsCount - this.completedLessonsCount) / (this.daysRemaining || 1)).toFixed(1);
+    },
+
+    getSubjectProgress(s) {
+      const t = this.subjectTotal(s);
+      return t ? Math.round(this.subjectDone(s) / t * 100) : 0;
+    },
+    progressById(id) {
+      const s = this.dataset.subjects.find(x => x.subject_id === id);
+      return s ? this.getSubjectProgress(s) : 0;
+    },
+    isSubjectCompleted(id) { return this.progressById(id) === 100; },
+    statusLabel(id) {
+      const p = this.progressById(id);
+      return p === 100 ? 'COMPLETED' : (p > 0 ? p + '% DONE' : 'PENDING');
+    },
+
+    fmtD(ms) { return new Date(ms).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }); },
+    fmtDays(d) { return d < 0.05 ? '0d' : (d < 10 ? d.toFixed(1) : Math.round(d)) + 'd'; },
+    win(a, b) { const x = this.fmtD(a), y = this.fmtD(b); return x === y ? x : x + ' → ' + y; },
+    tlIsOpen(s) { return this.tlOpen[s.id] === undefined ? s.hasNow : this.tlOpen[s.id]; },
+    tlToggle(s) { this.tlOpen[s.id] = !this.tlIsOpen(s); },
+
+    get daysLeftF() {
+      const n = new Date();
+      return Math.max(0.01, (new Date(n.getFullYear(), 11, 31, 23, 59, 59) - n) / 864e5);
+    },
+
+    get plan() {
+      const D = this.daysLeftF, us = [];
+      this.schedulePlan.forEach(p => {
+        const s = this.dataset.subjects.find(x => x.subject_id === p.subject_id);
+        if (!s) return;
+        const tt = i => (s.tests || []).filter(t => t.at === i), TW = 1.5;
+        const raw = s.sections
+          ? s.sections.map((x, i) => { const T = tt(i), dT = T.filter(t => t.completed).length, bs = x.lessons + 0.3 * x.attachments, eff = bs + TW * T.length;
+              return { title: x.title, n: x.lessons + T.length, t: T.length, eff, f: eff ? ((x.completed ? bs : 0) + TW * dT) / eff : 1 }; })
+          : s.modules.map((m, i) => { const T = tt(i), dT = T.filter(t => t.completed).length, bs = m.items.length, dn = m.items.filter(k => k.completed).length, eff = bs + TW * T.length;
+              return { title: m.topic, n: bs + T.length, t: T.length, eff, f: (dn + TW * dT) / eff }; });
+        const tot = raw.reduce((a, u) => a + u.eff, 0);
+        raw.forEach(u => us.push({ ...u, sid: p.subject_id, w: Math.max(0.2, p.days * u.eff / tot) }));
+      });
+      const totW = us.reduce((a, u) => a + u.w, 0);
+      us.forEach(u => { u.rem = u.n * (1 - u.f); u.b = D * u.w * (1 - u.f) / totW; });
+      const surplus = Math.max(0, D - us.reduce((a, u) => a + u.b, 0));
+      const need = us.map(u => u.b > 0 ? u.rem * u.rem / u.b : 0);
+      const needT = need.reduce((a, b) => a + b, 0) || 1;
+      const left = us.reduce((a, u) => a + u.rem, 0);
+      const avg = D / (left || 1);
+      let cur = Date.now(), first = true;
+      us.forEach((u, i) => {
+        u.done = u.f >= 0.999;
+        u.days = u.done ? 0 : u.b + surplus * need[i] / needT;
+        u.extra = u.done ? 0 : u.days - u.b;
+        u.start = cur; u.end = cur + u.days * 864e5; cur = u.end;
+        u.now = !u.done && first; if (!u.done) first = false;
+        u.tight = !u.done && u.days / u.rem < 0.75 * avg;
+      });
+      const subs = this.schedulePlan.map(p => {
+        const list = us.filter(u => u.sid === p.subject_id), pend = list.filter(u => !u.done);
+        return {
+          id: p.subject_id, name: p.name, note: p.note, units: list,
+          days: pend.reduce((a, u) => a + u.days, 0), extra: pend.reduce((a, u) => a + u.extra, 0),
+          done: !pend.length, doneCount: list.length - pend.length,
+          start: pend.length ? pend[0].start : 0, end: pend.length ? pend[pend.length - 1].end : 0,
+          hasNow: list.some(u => u.now)
+        };
+      });
+      return { D, subs, reclaimed: surplus, left: Math.round(left) };
+    },
+
+    toggleAllInSubject(subject) {
+      const target = this.getSubjectProgress(subject) !== 100;
+      if (subject.sections) subject.sections.forEach(s => s.completed = target);
+      else subject.modules.forEach(m => m.items.forEach(i => i.completed = target));
+      (subject.tests || []).forEach(t => t.completed = target);
+      this.saveState();
+    }
+  }));
+});
+</script>
+</body>
+</html>
